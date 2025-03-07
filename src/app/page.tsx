@@ -1,101 +1,169 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Stack,
+  Chip,
+} from '@mui/material';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Box
+      sx={{
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #020617 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: `
+            radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.05) 0%, transparent 70%)
+          `,
+          zIndex: 0,
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.02"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          opacity: 0.2,
+          zIndex: 1,
+        }
+      }}
+    >
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+        <Stack spacing={6} alignItems="center" textAlign="center">
+          {/* Success Badge */}
+          <Chip
+            icon={<CheckCircleIcon />}
+            label="Integration Successful"
+            color="success"
+            sx={{
+              py: 2,
+              px: 3,
+              backgroundColor: 'rgba(16, 185, 129, 0.1)',
+              backdropFilter: 'blur(8px)',
+              '& .MuiChip-label': { 
+                fontSize: '1rem',
+                color: '#34d399' 
+              },
+              '& .MuiChip-icon': { 
+                fontSize: '1.5rem',
+                color: '#34d399'
+              },
+              border: '1px solid rgba(52, 211, 153, 0.2)',
+              boxShadow: '0 0 20px rgba(16, 185, 129, 0.15)',
+            }}
+          />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Main Title */}
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: '2.5rem', md: '4rem' },
+              fontWeight: 800,
+              background: 'linear-gradient(45deg, #60a5fa, #3b82f6, #2563eb)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              letterSpacing: '-0.02em',
+              filter: 'drop-shadow(0 0 2px rgba(59, 130, 246, 0.3))',
+              mb: 2,
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Next.js + Material UI
+          </Typography>
+
+          {/* Subtitle */}
+          <Typography
+            variant="h5"
+            sx={{
+              color: 'rgba(226, 232, 240, 0.8)',
+              maxWidth: '600px',
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            }}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            Your development environment is ready with the perfect combination of 
+            Next.js 14 and Material UI v5
+          </Typography>
+
+          {/* Action Buttons */}
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={2}
+            sx={{ mt: 4 }}
+          >
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<RocketLaunchIcon />}
+              sx={{
+                background: 'linear-gradient(45deg, #3b82f6 30%, #2563eb 90%)',
+                px: 4,
+                py: 1.5,
+                borderRadius: 2,
+                textTransform: 'none',
+                fontSize: '1.1rem',
+                border: '1px solid rgba(59, 130, 246, 0.5)',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 0 20px rgba(59, 130, 246, 0.4)',
+                '&:hover': {
+                  background: 'linear-gradient(45deg, #2563eb 30%, #1d4ed8 90%)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 0 30px rgba(59, 130, 246, 0.6)',
+                  transition: 'all 0.2s ease-in-out',
+                }
+              }}
+            >
+              Get Started
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              startIcon={<GitHubIcon />}
+              sx={{
+                color: '#e2e8f0',
+                borderColor: 'rgba(226, 232, 240, 0.2)',
+                px: 4,
+                py: 1.5,
+                borderRadius: 2,
+                textTransform: 'none',
+                fontSize: '1.1rem',
+                backdropFilter: 'blur(10px)',
+                background: 'rgba(226, 232, 240, 0.03)',
+                '&:hover': {
+                  borderColor: 'rgba(226, 232, 240, 0.5)',
+                  background: 'rgba(226, 232, 240, 0.05)',
+                  transform: 'translateY(-2px)',
+                  transition: 'all 0.2s ease-in-out',
+                }
+              }}
+            >
+              View Source
+            </Button>
+          </Stack>
+        </Stack>
+      </Container>
+    </Box>
   );
 }
