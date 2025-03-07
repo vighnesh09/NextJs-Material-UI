@@ -107,7 +107,7 @@ export default function HomePage() {
             Next.js 14 and Material UI v5
           </Typography>
 
-          {/* Action Buttons */}
+         {/* Action Buttons */}
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={2}
@@ -117,6 +117,10 @@ export default function HomePage() {
               variant="contained"
               size="large"
               startIcon={<RocketLaunchIcon />}
+              component="a"
+              href="https://github.com/vighnesh09/NextJs-Material-UI/"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 background: 'linear-gradient(45deg, #3b82f6 30%, #2563eb 90%)',
                 px: 4,
@@ -141,6 +145,10 @@ export default function HomePage() {
               variant="outlined"
               size="large"
               startIcon={<GitHubIcon />}
+              component="a"
+              href="https://github.com/vighnesh09/NextJs-Material-UI/"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 color: '#e2e8f0',
                 borderColor: 'rgba(226, 232, 240, 0.2)',
